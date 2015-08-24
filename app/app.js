@@ -50,6 +50,13 @@ angular.module('myApp', [
       {name: 'Kibe', id: ~~Math.random()*100000, value: 3.50},
       {name: 'Suco de Laranja Purity', id: ~~Math.random()*100000, value: 4.00},
       {name: 'Farinha 5k Tio João', id: ~~Math.random()*100000, value: 8.00},
+    ],
+    'clientes': [
+      {name: 'João', sobrenome: 'Silva', idade: ~~Math.random()*60},
+      {name: 'Tião', sobrenome: 'Carreiro', idade: ~~Math.random()*60},
+      {name: 'Maria', sobrenome: 'dos Santos', idade: ~~Math.random()*60},
+      {name: 'Lucas', sobrenome: 'Amaral', idade: ~~Math.random()*60},
+      {name: 'Geninha', sobrenome: 'Bialin', idade: ~~Math.random()*60},
     ]
   }
 });
