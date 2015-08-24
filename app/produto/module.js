@@ -19,8 +19,8 @@ angular.module('app.produto', ['ui.router'])
                 , controller: 'ProdutoEditarController'
             });
     })
-    .controller('ProdutoListaController', [function () {
-
+    .controller('ProdutoListaController', ['$scope',function ($scope) {
+        //$scope.
     }])
     .controller('ProdutoNovoController', ['$scope',function ($scope) {
         $scope.opts = [

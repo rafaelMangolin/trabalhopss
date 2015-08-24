@@ -1,23 +1,24 @@
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <a class="btn btn-primary" ui-sref="produto.novo">Novo +</a>
-        <button class="btn btn-warning" ui-sref="produto.emfalta">Produtos em Falta</button>
+    <div class="col-md-12">
+        <a class="btn btn-primary" ui-sref="funcionario.novo">Novo +</a>
     </div>
     <div class="col-md-8 col-md-offset-2">
-        <table class="table table-">
+        <table class="table table-hover">
             <thead>
                 <th>Nome</th>
-                <th>Tipo</th>
-                <th>Valor</th>
-                <th>Quantidade Minima</th>
+                <th>Endereço</th>
+                <th>Telefone Fixo</th>
+                <th>Telefone Celular</th>
+                <th>Função</th>
                 <th></th>
             </thead>
             <tbody>
                 <tr ng-repeat="data in valores">
                     <td>{{data.nome}}</td>
-                    <td>{{data.tipo}}</td>
-                    <td>{{data.valor}}</td>
-                    <td>{{data.qntdMin}}</td>
+                    <td>{{data.endereco}}</td>
+                    <td>{{data.fixo}}</td>
+                    <td>{{data.celular}}</td>
+                    <td>{{data.funcao}}</td>
                     <td>
                         <button class="bt btn-danger" ng-click="remover($index)">X</button>
                         <button class="bt btn-info" ng-click="alterar($index)">Alterar</button>

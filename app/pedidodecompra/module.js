@@ -9,20 +9,6 @@ angular.module('app.pedidocompra', ['ui.router'])
                 , controller: 'PedidoCompraNovoController'
             })
     })
-    .controller('PedidoCompraListaController', [function () {
+    .controller('PedidoCompraNovoController', ['$scope',function ($scope) {
 
     }])
-    .controller('PedidoCompraNovoController', ['$scope',function ($scope) {
-        $scope.opts = [
-            'MATÉRIA-PRIMA'
-            , 'REVENDA'
-            , 'MANUFATURA'
-        ]
-    }])
-    .controller('PedidoCompraEditarController', ['$scope',function ($scope) {
-        $scope.opts = [
-            'MATÉRIA-PRIMA'
-            , 'REVENDA'
-            , 'MANUFATURA'
-        ]
-    }]);
