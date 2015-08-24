@@ -1,6 +1,5 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
 angular.module('myApp', [
     'ui.router'
     , 'ui.utils.masks'
@@ -8,6 +7,7 @@ angular.module('myApp', [
     , 'app.produto'
     , 'app.cliente'
     , 'app.funcionario'
+    , 'app.venda'
 ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/login");
     $stateProvider
@@ -26,6 +26,10 @@ angular.module('myApp', [
         })
         .state('funcionario', {
             url: "/funcionario"
+            ,templateUrl:'base.html'
+        })
+        .state('venda', {
+            url: "/venda"
             ,templateUrl:'base.html'
         });
 });
