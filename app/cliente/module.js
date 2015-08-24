@@ -19,7 +19,8 @@ angular.module('app.cliente', ['ui.router'])
                 , controller: 'ClienteEditarController'
             });
     })
-    .controller('ClienteListaController', [function () {
+    .controller('ClienteListaController', ['$scope','seed',function ($scope,seed) {
+      $scope.clientes = seed.clientes;
     }])
     .controller('ClienteNovoController', ['$scope',function ($scope) {
         $scope.opts = [
