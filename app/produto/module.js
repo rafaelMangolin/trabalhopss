@@ -20,6 +20,7 @@ angular.module('app.produto', ['ui.router'])
             });
     })
     .controller('ProdutoListaController', [function () {
+
     }])
     .controller('ProdutoNovoController', ['$scope',function ($scope) {
         $scope.opts = [
