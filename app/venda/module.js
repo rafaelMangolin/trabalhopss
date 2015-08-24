@@ -12,9 +12,12 @@ angular.module('app.venda', ['ui.router','ui.bootstrap'])
         $scope.open = function(){
           var modalInstance = $modal.open({
             animation: true,
-            templateUrl: 'modalTemplate.html',
+            templateUrl: 'modaltemplate.html',
             controller: 'ModalController',
-            size: 'lg'
+            size: 'md'
           })
         }
+    }])
+    .controller('ModalController',['$scope','$modalInstance',function($scope,$modalInstance){
+
     }])
