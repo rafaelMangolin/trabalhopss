@@ -19,7 +19,8 @@ angular.module('app.funcionario', ['ui.router'])
                 , controller: 'FuncionarioEditarController'
             });
     })
-    .controller('FuncionarioListaController', [function () {
+    .controller('FuncionarioListaController', ['$scope','seed',function ($scope,seed) {
+      $scope.funcionarios = seed.funcionarios;
     }])
     .controller('FuncionarioNovoController', ['$scope',function ($scope) {
         $scope.opts = [
