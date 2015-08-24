@@ -23,6 +23,10 @@
         <label for="preco">Preço</label>
         <input id="preco" type="text" ng-model="entity.preco" class="form-control" ui-money-mask/>
     </div>
+    <div class="col-md-12">
+        <label for="preco">Quantidade Minima</label>
+        <input id="preco" type="number" ng-model="entity.min" class="form-control"/>
+    </div>
 
     <div class="col-md-12" style="margin-top: 15px">
         <button type="button" class="btn btn-primary pull-right" ui-sref="produto.lista">Salvar</button>

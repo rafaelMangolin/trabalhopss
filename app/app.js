@@ -11,6 +11,7 @@ angular.module('myApp', [
     , 'app.pedidocompra'
     , 'app.ordemproducao'
     , 'app.relatorio'
+    , 'app.entrega'
 
 ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/login");
@@ -46,6 +47,10 @@ angular.module('myApp', [
         })
         .state('relatorio', {
             url: "/relatorio"
+            ,templateUrl:'base.html'
+        })
+        .state('entrega', {
+            url: "/entrega"
             ,templateUrl:'base.html'
         });
 
