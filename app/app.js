@@ -8,6 +8,8 @@ angular.module('myApp', [
     , 'app.cliente'
     , 'app.funcionario'
     , 'app.venda'
+    , 'app.pedidocompra'
+
 ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/login");
     $stateProvider
@@ -32,4 +34,9 @@ angular.module('myApp', [
             url: "/venda"
             ,templateUrl:'base.html'
         });
+        .state('pedidocompra', {
+            url: "/pedidocompra"
+            ,templateUrl:'base.html'
+        })
+    ;
 });

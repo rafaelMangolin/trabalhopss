@@ -1,0 +1,51 @@
+<div class="col-md-8 col-md-offset-2">
+     <div class="well">
+
+         <div class="col-md-6">
+             <label for="produto">Produto</label>
+             <input id="produto" name="produto" type="text" ng-model="produto" typeahead="state for state in states" class="form-control">
+         </div>
+         <div class="col-md-6">
+             <label for="quantidade">Quantidade</label>
+             <input id="quantidade" name="quantidade" type="text" ng-model="quantidade" typeahead="state for state in states" class="form-control">
+         </div>
+         <div class="col-md-12" style="margin-top: 15px">
+             <button id="add" name="quantidade" type="text" ng-model="quantidade" typeahead="state for state in states" class="btn btn-default float-right">
+                 Adicionar +
+             </button>
+         </div>
+         <div class="clearfix"></div>
+     </div>
+
+    <div class="col-md-8 col-md-offset-2">
+        <table class="table table-">
+            <thead>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Quantidade Minima</th>
+            <th></th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="data in valores">
+                <td>{{data.nome}}</td>
+                <td>{{data.tipo}}</td>
+                <td>{{data.valor}}</td>
+                <td><span>
+                        {{data.qntdMin}}
+                    </span>
+                    <input type="text"/>
+                </td>
+                <td>
+                    <button class="bt btn-danger" ng-click="remover($index)">X</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-12">
+        <button class="btn btn-danger" ui-sref="produto.lista">Cancelar</button>
+        <button class="btn btn-primary" ui-sref="produto.lista">Salvar</button>
+    </div>
+</div>
