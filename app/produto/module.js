@@ -13,15 +13,16 @@ angular.module('app.produto', ['ui.router'])
                 , templateUrl: 'produto/form.html'
                 , controller: 'ProdutoNovoController'
             })
-            .state('produto.editar', {
-                url: "/{id}"
-                , templateUrl: 'produto/form.html'
-                , controller: 'ProdutoEditarController'
-            })
+
             .state('produto.emfalta', {
                 url: "/falta"
                 , templateUrl: 'produto/lista.html'
                 , controller: 'ProdutoEmFaltaController'
+            })
+            .state('produto.editar', {
+                url: "/{id}"
+                , templateUrl: 'produto/form.html'
+                , controller: 'ProdutoEditarController'
             });
     })
     .controller('ProdutoListaController', ['$scope',function ($scope) {

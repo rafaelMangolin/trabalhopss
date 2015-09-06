@@ -1,28 +1,71 @@
 
 <div class="col-md-8 col-md-offset-2">
+    <div class="row">
     <div class="col-md-12">
-        <label for="nome">Nome</label>
+        <label for="nome">Cliente</label>
         <input id="nome" type="text" ng-model="entity.nome" class="form-control"/>
     </div>
 
     <div class="col-md-12">
-        <label for="endereco">Endereço</label>
+        <label for="endereco">Endereço de entrega</label>
         <input id="endereco" type="text" ng-model="entity.endereco" class="form-control"/>
     </div>
 
     <div class="col-md-12">
-        <label for="fixo">Telefone Fixo</label>
-        <input id="fixo" type="text" ng-model="entity.fixo" ui-br-phone-number class="form-control"/>
+        <label for="fixo">Data de entrega</label>
+        <input id="fixo" type="date" ng-model="entity.fixo" class="form-control"/>
     </div>
 
     <div class="col-md-12">
-        <label for="celular">Telefone Celular</label>
-        <input ng-model="entity.celular" name="celular" id="celular" class="form-control" ui-br-phone-number/>
+        <label for="celular">Horario de entrega</label>
+        <input ng-model="entity.celular" name="celular" type="text" id="celular" class="form-control" ui-br-phone-number/>
+    </div>
+    </div>
+
+    <div class="row" style="margin-top: 15px">
+        <div class="well">
+            <div class="col-md-6">
+                <label for="produto">Produto</label>
+                <input id="produto" name="produto" type="text" ng-model="produto" typeahead="state for state in states" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="quantidade">Quantidade</label>
+                <input id="quantidade" name="quantidade" type="text" ng-model="quantidade" typeahead="state for state in states" class="form-control">
+            </div>
+            <div class="col-md-12" style="margin-top: 15px">
+                <button id="add" name="quantidade" type="text" ng-model="quantidade" typeahead="state for state in states" class="btn btn-default float-right">
+                    Adicionar +
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
     </div>
 
     <div class="col-md-12">
-        <label for="funcao">Função</label>
-        <input ng-model="entity.funcao" name="funcao" id="funcao" class="form-control"/>
+        <table class="table table-">
+            <thead>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Quantidade Minima</th>
+            <th></th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="data in valores">
+                <td>{{data.nome}}</td>
+                <td>{{data.tipo}}</td>
+                <td>{{data.valor}}</td>
+                <td><span>
+                        {{data.qntdMin}}
+                    </span>
+                    <input type="text"/>
+                </td>
+                <td>
+                    <button class="bt btn-danger" ng-click="remover($index)">X</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
     <div class="col-md-12" style="margin-top: 15px">

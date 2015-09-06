@@ -13,6 +13,11 @@ angular.module('app.funcionario', ['ui.router'])
                 , templateUrl: 'funcionario/form.html'
                 , controller: 'FuncionarioNovoController'
             })
+            .state('funcionario.entrada', {
+                url: "/entrada1"
+                , templateUrl: 'funcionario/entrada1.html'
+                , controller: 'FuncionarioEditarController'
+            })
             .state('funcionario.editar', {
                 url: "/{id}"
                 , templateUrl: 'funcionario/form.html'
