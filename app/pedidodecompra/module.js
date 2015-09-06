@@ -9,6 +9,13 @@ angular.module('app.pedidocompra', ['ui.router'])
                 , controller: 'PedidoCompraNovoController'
             })
     })
-    .controller('PedidoCompraNovoController', ['$scope',function ($scope) {
-
+    .controller('PedidoCompraNovoController', ['$scope','seed',function ($scope,seed) {
+        $scope.produtos = seed.produtos;
+        $scope.valores = [];
+        $scope.add = function(value){
+            $scope.valores.push(value);
+        }
+        $scope.remover = function(value){
+            $scope.valores.push(value);
+        }
     }])

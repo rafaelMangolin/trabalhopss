@@ -19,8 +19,14 @@ angular.module('app.cliente', ['ui.router'])
                 , controller: 'ClienteEditarController'
             });
     })
-    .controller('ClienteListaController', ['$scope','seed',function ($scope,seed) {
+    .controller('ClienteListaController', ['$scope','seed','$state',function ($scope,seed,$state) {
       $scope.clientes = seed.clientes;
+        $scope.remover = function(index){
+            $scope.clientes.splice(index,1);
+        }
+        $scope.alterar = function(index){
+            $state.go('cliente.editar',{id:index})
+        }
     }])
     .controller('ClienteNovoController', ['$scope',function ($scope) {
         $scope.opts = [

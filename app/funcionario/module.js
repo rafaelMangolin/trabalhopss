@@ -6,7 +6,7 @@ angular.module('app.funcionario', ['ui.router'])
             .state('funcionario.lista', {
                 url: "/lista"
                 , templateUrl: 'funcionario/lista.html'
-                ,controller:'FuncionarioListaController'
+                , controller: 'FuncionarioListaController'
             })
             .state('funcionario.novo', {
                 url: "/novo"
@@ -14,9 +14,9 @@ angular.module('app.funcionario', ['ui.router'])
                 , controller: 'FuncionarioNovoController'
             })
             .state('funcionario.entrada', {
-                url: "/entrada1"
-                , templateUrl: 'funcionario/entrada1.html'
-                , controller: 'FuncionarioEditarController'
+                url: "/entrada"
+                , templateUrl: 'funcionario/entrada.html'
+                , controller: 'FuncionarioEntradaController'
             })
             .state('funcionario.editar', {
                 url: "/{id}"
@@ -24,20 +24,40 @@ angular.module('app.funcionario', ['ui.router'])
                 , controller: 'FuncionarioEditarController'
             });
     })
-    .controller('FuncionarioListaController', ['$scope','seed',function ($scope,seed) {
-      $scope.funcionarios = seed.funcionarios;
+    .controller('FuncionarioListaController', ['$scope', 'seed', '$state', function ($scope, seed, $state) {
+        $scope.funcionarios = seed.funcionarios;
+        $scope.alterar = function(index){
+            $state.go('funcionario.editar',{id:index});
+        }
+        $scope.remover = function(index){
+            $scope.funcionarios.splice(index,1);
+        }
     }])
-    .controller('FuncionarioNovoController', ['$scope',function ($scope) {
+    .controller('FuncionarioNovoController', ['$scope', function ($scope) {
         $scope.opts = [
             'MATÉRIA-PRIMA'
             , 'REVENDA'
             , 'MANUFATURA'
         ]
     }])
-    .controller('FuncionarioEditarController', ['$scope',function ($scope) {
+    .controller('FuncionarioEditarController', ['$scope', function ($scope) {
         $scope.opts = [
             'MATÉRIA-PRIMA'
             , 'REVENDA'
             , 'MANUFATURA'
         ]
+    }])
+    .controller('FuncionarioEntradaController', ['$scope','$state', function ($scope,$state) {
+        $scope.opts = [
+            'MATÉRIA-PRIMA'
+            , 'REVENDA'
+            , 'MANUFATURA'
+        ];
+        $scope.entrada = function(){
+            var data = new Date();
+            alert('Entrada ou saida em '+ data.getHours()+':'+data.getMinutes());
+            $scope.login = '';
+            $scope.senha = '';
+        }
+
     }]);

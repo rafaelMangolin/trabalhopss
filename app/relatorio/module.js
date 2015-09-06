@@ -9,5 +9,19 @@ angular.module('app.relatorio', ['ui.router'])
                 ,controller:'RelatorioListaController'
             })
     })
-    .controller('RelatorioListaController', [function () {
+    .controller('RelatorioListaController', ['$scope',function ($scope) {
+            $scope.options = [
+            'Geral',
+            'Despesa',
+            'Lucro',
+            'Folha Salarial'
+            ]
+            $scope.select = 'Geral';
+        $scope.isAble = function(){
+            if($scope.select == 'Folha Salarial'){
+                return $scope.inicio;
+            }else if($scope.select != ''){
+                return $scope.inicio && $scope.fim;
+            }
+        }
     }])

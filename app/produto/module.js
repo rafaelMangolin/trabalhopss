@@ -25,7 +25,8 @@ angular.module('app.produto', ['ui.router'])
                 , controller: 'ProdutoEditarController'
             });
     })
-    .controller('ProdutoListaController', ['$scope',function ($scope) {
+
+    .controller('ProdutoListaController', ['$scope','$state',function ($scope,$state) {
         $scope.valores=[
             {
                 nome:'Bolacha Passatempo'
@@ -34,23 +35,37 @@ angular.module('app.produto', ['ui.router'])
                 ,qntdMin: 3
             }
         ]
+
+        $scope.remover = function(index){
+            $scope.valores.splice(index,1);
+        }
+
+        $scope.alterar = function(index){
+            $state.go('produto.editar',{id:index});
+        }
     }])
+
     .controller('ProdutoNovoController', ['$scope',function ($scope) {
         $scope.opts = [
             'MATÉRIA-PRIMA'
             , 'REVENDA'
             , 'MANUFATURA'
-        ]
+        ];
+        $scope.entity = {min:0}
     }])
+
     .controller('ProdutoEditarController', ['$scope',function ($scope) {
         $scope.opts = [
             'MATÉRIA-PRIMA'
             , 'REVENDA'
             , 'MANUFATURA'
         ]
+
     }])
-    .controller('ProdutoEmFaltaController', ['$scope',function ($scope) {
-        $scope.is = true;
+
+    .controller('ProdutoEmFaltaController', ['$scope','$state',function ($scope,$state) {
+        $scope.in = true;
+
         $scope.valores=[
             {
                 nome:'Farinha Aviação'
@@ -59,4 +74,10 @@ angular.module('app.produto', ['ui.router'])
                 ,qntdMin: 3
             }
         ]
+        $scope.remover = function(index){
+            $scope.valores.splice(index,1);
+        }
+        $scope.alterar = function(index){
+            $state.go('produto.editar',{id:index});
+        }
     }]);

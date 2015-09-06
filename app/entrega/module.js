@@ -14,7 +14,8 @@ angular.module('app.entrega', ['ui.router'])
                 ,controller:'EntregaEditarController'
             })
     })
-    .controller('EntregaListaController', [function () {
+    .controller('EntregaListaController', ['$scope',function ($scope) {
+        $scope.data = new Date();
     }])
     .controller('EntregaEditarController', [function () {
     }])

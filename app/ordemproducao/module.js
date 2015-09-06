@@ -21,17 +21,45 @@ angular.module('app.ordemproducao', ['ui.router'])
     })
     .controller('OrdemProducaoListaController', [function () {
     }])
-    .controller('OrdemProducaoNovoController', ['$scope',function ($scope) {
+    .controller('OrdemProducaoNovoController', ['$scope','seed',function ($scope,seed) {
         $scope.opts = [
             'MATÉRIA-PRIMA'
             , 'REVENDA'
             , 'MANUFATURA'
         ]
+        $scope.produtos = seed.produtos;
+        $scope.valores = [];
+        $scope.produto = {
+            valor:''
+        }
+        $scope.add = function(value){
+            $scope.valores.push(value);
+            $scope.produto = {
+                valor:''
+            }
+        }
+        $scope.remover = function(index){
+            $scope.valores.splice(index,1);
+        }
     }])
-    .controller('OrdemProducaoEditarController', ['$scope',function ($scope) {
+    .controller('OrdemProducaoEditarController', ['$scope','seed',function ($scope,seed) {
         $scope.opts = [
             'MATÉRIA-PRIMA'
             , 'REVENDA'
             , 'MANUFATURA'
         ]
+        $scope.produtos = seed.produtos;
+        $scope.valores = [];
+        $scope.produto = {
+            valor:''
+        }
+        $scope.add = function(value){
+            $scope.valores.push(value);
+            $scope.produto = {
+                valor:''
+            }
+        }
+        $scope.remover = function(index){
+            $scope.valores.splice(index,1);
+        }
     }]);

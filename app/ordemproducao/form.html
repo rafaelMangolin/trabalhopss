@@ -3,15 +3,15 @@
 
          <div class="col-md-6">
              <label for="produto">Produto</label>
-             <input id="produto" name="produto" type="text" ng-model="produto" typeahead="state for state in states" class="form-control">
+             <input id="produto" name="produto" type="text" ng-model="produto.valor" typeahead="pro as pro.name for pro in produtos |filter:$viewValue" class="form-control">
          </div>
          <div class="col-md-6">
              <label for="quantidade">Quantidade</label>
-             <input id="quantidade" name="quantidade" type="text" ng-model="quantidade" typeahead="state for state in states" class="form-control">
+             <input id="quantidade" name="quantidade" type="number" ng-model="produto.quantidade" class="form-control"/>
          </div>
          <div class="col-md-12" style="margin-top: 15px">
-             <button id="add" name="quantidade" type="text" ng-model="quantidade" typeahead="state for state in states" class="btn btn-default float-right">
-                 Adicionar +
+             <button id="add" name="add" type="button" class="btn btn-info float-right" ng-click="add(produto)" ng-disabled="!produto.quantidade || !produto.valor.name">
+                 Adicionar <span class="fa fa-plus"></span>
              </button>
          </div>
          <div class="clearfix"></div>
@@ -21,23 +21,19 @@
         <table class="table table-">
             <thead>
             <th>Nome</th>
-            <th>Tipo</th>
             <th>Valor</th>
-            <th>Quantidade Minima</th>
+            <th>Quantidade</th>
             <th></th>
             </thead>
             <tbody>
             <tr ng-repeat="data in valores">
-                <td>{{data.nome}}</td>
-                <td>{{data.tipo}}</td>
-                <td>{{data.valor}}</td>
-                <td><span>
-                        {{data.qntdMin}}
-                    </span>
-                    <input type="text"/>
+                <td>{{data.valor.name}}</td>
+                <td>{{data.valor.value}}</td>
+                <td>
+                    {{data.quantidade}}
                 </td>
                 <td>
-                    <button class="bt btn-danger" ng-click="remover($index)">X</button>
+                    <button class="btn btn-danger" ng-click="remover($index)"><span class="fa fa-remove"></span></button>
                 </td>
             </tr>
             </tbody>
@@ -45,6 +41,6 @@
     </div>
     <div class="col-md-12">
         <button class="btn btn-danger" ui-sref="produto.lista">Cancelar</button>
-        <button class="btn btn-primary" ui-sref="produto.lista">Salvar</button>
+        <button class="btn btn-primary" ui-sref="produto.lista" ng-disabled="valores.length <= 0">Salvar</button>
     </div>
 </div>

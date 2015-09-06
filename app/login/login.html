@@ -8,7 +8,8 @@
             <input id="senha" type="password" ng-model="senha" class="form-control"/>
 
             <div class="col-md-12" style="margin-top: 15px">
-                <button type="button" class="btn btn-primary pull-right" ui-sref="produto.lista">Login</button>
+                <button type="button" class="btn btn-primary pull-right" ui-sref="produto.lista"
+                        ng-disabled="!login || !senha">Login</button>
             </div>
                 <span class="clearfix"></span>
         </div>
